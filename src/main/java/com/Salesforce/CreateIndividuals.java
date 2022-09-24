@@ -33,8 +33,7 @@ public class CreateIndividuals {
         
         driver.findElement(By.xpath("//button[@title='Save']")).click();
         
-        driver.findElement(By.xpath("")).click();
-        driver.findElement(By.xpath("")).click();
+        
         
         
 

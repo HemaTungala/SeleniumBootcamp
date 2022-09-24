@@ -17,7 +17,7 @@ public class CreateAcco {
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--disable-notifications");
-	WebDriver driver=new ChromeDriver(options);
+	    WebDriver driver=new ChromeDriver(options);
 		driver.get("https://login.salesforce.com");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
  	    driver.findElement(By.id("username")).sendKeys("hari.radhakrishnan@qeagle.com");
@@ -49,14 +49,16 @@ public class CreateAcco {
 	    String accountName=driver.findElement(By.xpath("//input[@name='Name']")).getText();
 	    JavascriptExecutor js4 = (JavascriptExecutor) driver;
 	    
-	       //specify the WebElement till which the page has to be scrolled
+	       
 	       WebElement element =  driver.findElement(By.xpath("//button[@aria-label='Ownership, --None--']"));
 	 
 	       js4.executeScript("arguments[0].scrollIntoView();", element);
 	    driver.findElement(By.xpath("//button[@aria-label='Ownership, --None--']")).click();
 	    driver.findElement(By.xpath("//span[@title='Public']")).click();
 	    driver.findElement(By.xpath("//button[@name='SaveEdit']")).click();
-	    //Assert.assertEquals(accountName, false);
+	    String eAccountName=driver.findElement(By.xpath("//tbody//a")).getText();
+	    Assert.assertEquals(accountName, eAccountName);
+	    System.out.println("Equal");
 	    
 	    
 	 

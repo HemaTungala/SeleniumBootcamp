@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
 public class CreateOpp {
 
@@ -51,6 +52,9 @@ public class CreateOpp {
 	    driver.findElement(By.xpath("//button[@aria-label='Stage, --None--']")).click();
 	    driver.findElement(By.xpath("//span[@title='Needs Analysis']")).click();
 	    driver.findElement(By.xpath("//button[@name='SaveEdit']")).click();
+	    String eoppname=driver.findElement(By.xpath("//tbody//a")).getText();
+	    Assert.assertEquals(oppname, eoppname);
+	    System.out.println("Equal");
 	    
 	    
 	 
